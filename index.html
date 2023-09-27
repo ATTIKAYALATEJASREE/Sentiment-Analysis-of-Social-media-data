@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Social Media Sentiment Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #inputBox {
+            margin: 20px auto;
+            padding: 10px;
+        }
+        #result {
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Social Media Sentiment Analysis</h1>
+    
+    <div id="inputBox">
+        <label for="userInput">Enter your social media post:</label><br>
+        <textarea id="userInput" rows="4" cols="50"></textarea><br>
+        <button onclick="analyzeSentiment()">Analyze Sentiment</button>
+    </div>
+
+    <div id="result">
+        <h2>Sentiment: <span id="sentimentResult"></span></h2>
+        <img src="" alt="Sentiment Image" id="sentimentImage" style="display: none;">
+    </div>
+
+    <script>
+        function analyzeSentiment() {
+            const userInput = document.getElementById("userInput").value;
+            // You would typically send the user input to a server for sentiment analysis
+            // Here, we simulate sentiment analysis by checking for keywords
+            if (userInput.toLowerCase().includes("happy") || userInput.toLowerCase().includes("joy")) {
+                document.getElementById("sentimentResult").textContent = "Positive";
+                document.getElementById("sentimentImage").src = "happy.jpg"; // Replace with your image URL
+            } else if (userInput.toLowerCase().includes("sad") || userInput.toLowerCase().includes("angry")) {
+                document.getElementById("sentimentResult").textContent = "Negative";
+                document.getElementById("sentimentImage").src = "sad.jpg"; // Replace with your image URL
+            } else {
+                document.getElementById("sentimentResult").textContent = "Neutral";
+                document.getElementById("sentimentImage").src = "neutral.jpg"; // Replace with your image URL
+            }
+
+            document.getElementById("sentimentImage").style.display = "block";
+        }
+    </script>
+</body>
+</html>
